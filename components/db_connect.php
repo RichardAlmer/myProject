@@ -2,7 +2,7 @@
     $serverName = "127.0.0.1";
     $userName = "root";
     $password = "";
-    $databaseName = "wf-backend-5-ecommerce";
+    $databaseName = "myproject";
 
     $conn = mysqli_connect($serverName, $userName, $password, $databaseName);
 
