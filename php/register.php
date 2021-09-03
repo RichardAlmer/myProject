@@ -170,6 +170,7 @@
                 <input type="password" name="password2" class="form-control" id="InputPassword2" onkeyup="checkPassword((this.value).length)">
                 <span id="errorPassword" class="text-danger"> <?php echo $errorPassword; ?> </span>
             </div>
+            <a href="../index.php">Login</a><br>
             <button type="submit" name="btnRegister" class="btn btn-primary">Registrieren</button>
         </form>
     </div>
