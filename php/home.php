@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>For User</h1>
+    <a href="../components/logout.php?logout">Logout</a>
 </body>
 </html>
