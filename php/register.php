@@ -162,13 +162,13 @@
                 <span id="errorEmail" class="text-danger"> <?php echo $errorEmail; ?> </span>
             </div>
             <div class="mb-3">
-                <label for="InputPassword1" class="form-label">Password: </label>
-                <input type="password" name="password1" class="form-control" id="InputPassword1">
+                <label for="InputPassword1" class="form-label">Passwort: </label>
+                <input type="password" name="password1" class="form-control" id="InputPassword1" onkeyup="checkPassword((this.value).length)">
             </div>
             <div class="mb-3">
-                <label for="InputPassword2" class="form-label">Password wiederholen: </label>
-                <input type="password" name="password2" class="form-control" id="InputPassword2">
-                <span class="text-danger"> <?php echo $errorPassword; ?> </span>
+                <label for="InputPassword2" class="form-label">Passwort wiederholen: </label>
+                <input type="password" name="password2" class="form-control" id="InputPassword2" onkeyup="checkPassword((this.value).length)">
+                <span id="errorPassword" class="text-danger"> <?php echo $errorPassword; ?> </span>
             </div>
             <button type="submit" name="btnRegister" class="btn btn-primary">Registrieren</button>
         </form>
@@ -193,6 +193,17 @@
                 }
             }
             rq.open("GET", "../components/checkEmail.php?email="+mail, true);
+            rq.send();
+        }
+
+        function checkPassword(passcount){
+            var rq = new XMLHttpRequest();
+            rq.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("errorPassword").innerHTML = this.responseText;
+                }
+            }
+            rq.open("GET", "../components/checkPassword.php?passcount="+passcount, true);
             rq.send();
         }
     </script>
